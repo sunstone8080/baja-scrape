@@ -4,6 +4,7 @@ from selenium.webdriver.support.ui import Select, WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from bs4 import BeautifulSoup
 import time
+from obswebsocket import obsws, requests
 
 # Initialize WebDriver (Ensure you have chromedriver installed)
 driver = webdriver.Chrome()
@@ -69,6 +70,15 @@ for row in data:
     if any(search_string in col for col in row):
         for idx, value in enumerate(row):
             print(f"{headers[idx]}: {value}")
+
+
+host, port, password = "localhost", 4455, "fB6NLEJKmU4ESmEH"
+ws= obsws(host, port, password)
+ws.connect()
+
+# Example function to update a text source in OBS
+ws.call(requests.SetTextGDIPlusProperties(source="OverlayText", text="Hello from Python!"))
+ws.disconnect()
 
 
 # Close the driver
