@@ -1,0 +1,10 @@
+first placePos.: 1
+Car No.: 57
+School / Team Name: Ecole de Technologie Superieure
+Baja ÉTS
+# of Laps: 57
+Last Lap Time: 6:06.884
+(at 13:34:19.742)
+Best Lap Time: 3:42.528
+(lap 15)
+Average Lap Time: 4:17.989

@@ -51,35 +51,49 @@ for table in tables:
                 data.append(cols)
 
 # Print extracted data
-search_string = "Virginia Tech"
-print("first place")
 
-for row in data:
-    
-        # Strip spaces and ensure the comparison works correctly
-        if row[0].strip() == "1":
-            for idx, value in enumerate(row):
-                print(f"{headers[idx]}: {value}")
         
    
 
-print("\n\n\nsearched value")
-
-for row in data:
-    # Check if row contains the search string
-    if any(search_string in col for col in row):
-        for idx, value in enumerate(row):
-            print(f"{headers[idx]}: {value}")
 
 
-host, port, password = "localhost", 4455, "fB6NLEJKmU4ESmEH"
-ws= obsws(host, port, password)
+
+
+
+host, port, password = "localhost", 4455, "FwLIVu71h03WDVym"
+ws = obsws(host, port, password)
+
+
 ws.connect()
 
-# Example function to update a text source in OBS
-ws.call(requests.SetTextGDIPlusProperties(source="OverlayText", text="Hello from Python!"))
+    # Update OBS text source
+text_value = "Hello from Python! This will stay updated."
+ws.call(requests.SetTextGDIPlusProperties(source="game Score", text=text_value))
+print("Text successfully updated in OBS!")
+
+    # text file write for first place
+with open("overlay_text.txt", "w") as file:
+    
+
+
+
+    search_string = "Virginia Tech"
+    file.write("first place")
+
+    for row in data:
+        
+            # Strip spaces and ensure the comparison works correctly
+            if row[0].strip() == "1":
+                for idx, value in enumerate(row):
+                    file.write(f"{headers[idx]}: {value}\n")
+
+    #text file whire for searched value
+with open("searchText.txt", "w") as file:
+
+    for row in data:
+        # Check if row contains the search string
+        if any(search_string in col for col in row):
+            for idx, value in enumerate(row):
+                file.write(f"{headers[idx]}: {value}\n")
+
 ws.disconnect()
-
-
-# Close the driver
-driver.quit()

@@ -1,0 +1,10 @@
+Pos.: 2
+Car No.: 64
+School / Team Name: Virginia Tech
+VT Baja
+# of Laps: 56
+Last Lap Time: 4:09.352
+(at 13:24:04.225)
+Best Lap Time: 3:35.605
+(lap 9)
+Average Lap Time: 4:11.500
